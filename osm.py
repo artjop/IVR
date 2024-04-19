@@ -22,6 +22,14 @@ for element in xml.split('</node>'):
         lat = float(element.split('lat="')[1].split('"')[0])
         lon = float(element.split('lon="')[1].split('"')[0])
         folium.Marker([lat, lon], icon=folium.Icon(color='red')).add_to(m)
+    if 'amenity="tourism"' in element:
+        lat = float(element.split('lat="')[1].split('"')[0])
+        lon = float(element.split('lon="')[1].split('"')[0])
+        folium.Marker([lat, lon], icon=folium.Icon(color='green')).add_to(m)
+    if 'amenity="supermarkets"' in element:
+        lat = float(element.split('lat="')[1].split('"')[0])
+        lon = float(element.split('lon="')[1].split('"')[0])
+        folium.Marker([lat, lon], icon=folium.Icon(color='blue')).add_to(m)
 
 # Сохраняем карту в файл
 m.save('map.html')
